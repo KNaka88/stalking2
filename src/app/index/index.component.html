@@ -1,6 +1,13 @@
 <div class='container'>
-  <sebm-google-map [latitude]="45.5206223" [longitude]="-122.6795871" [zoom]='15'>
-    <sebm-google-map-marker [latitude]="lat" [longitude]="lng" [iconUrl]='mario'></sebm-google-map-marker>
+  <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]='15'>
+    <sebm-google-map-marker [latitude]="lat" [longitude]="lng" [iconUrl]='mario' [openInfoWindow]="true" (mouseOver)="showAlert()">
+      <sebm-google-map-info-window [disableAutoPan]="true">
+        <ul>
+          <li>Name:{{afService.displayName}}</li>
+          <li>Email: {{afService.email}}</li>
+        </ul>
+      </sebm-google-map-info-window>
+    </sebm-google-map-marker>
   </sebm-google-map>
 <div class="nav">
   <button type="button" name="button" (click)="logout()">Logout</button>

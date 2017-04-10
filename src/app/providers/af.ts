@@ -20,6 +20,7 @@ export class AF {
           this.uid = auth.uid;
           console.log("construct ----> uid");
           console.log(this.uid);
+          console.log(this.user);
         }
       });
     this.messages = this.af.database.list('messages');
@@ -113,6 +114,8 @@ export class AF {
        lng: lng
      })
    }
+
+
 
    getUserName(uid: string) {
      return this.af.database.object('registeredUsers/' + uid);

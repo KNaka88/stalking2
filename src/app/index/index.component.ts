@@ -3,6 +3,8 @@ import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@ang
 import { AF } from '../providers/af';
 import { FirebaseListObservable} from 'angularfire2';
 import { FormsModule } from '@angular/forms';
+import { SebmGoogleMap, SebmGoogleMapMarker, SebmGoogleMapInfoWindow } from
+'angular2-google-maps/core';
 
 
 @Component({
@@ -28,6 +30,7 @@ export class IndexComponent implements OnInit, AfterViewChecked {
     this.messages = this.afService.messages;
   }
 
+
   ngOnInit() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((location) => {
@@ -35,6 +38,10 @@ export class IndexComponent implements OnInit, AfterViewChecked {
           this.updateUserLocation();
       });
     }
+  }
+
+  showAlert(){
+    console.log("clicked");
   }
 
   ngAfterViewChecked() {
